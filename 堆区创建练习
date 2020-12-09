@@ -1,0 +1,49 @@
+//new 基本语法
+#include<iostream>
+#include<string>
+int* fun()
+{
+	//堆区创建整形数据 new返回该数据类型的指针
+	int* p = new int(10);
+	//用delete 释放数据
+	return p;
+}
+//2.堆区开辟数组
+void test02()
+{
+	int * arr  = new int[10]; //堆区开辟数组成员为10
+	for (int i = 0; i < 10; i++)
+	{
+		arr[i] = i + 100;
+	}
+	delete[]arr;//释放数组
+}
+
+int test03()
+{//引用  数据类型 &别名 = 原名 
+	int a = 10;
+	int& b = a;
+	cout << b << endl;
+}
+int test04(int& a, int& b) //引用传递  形参修饰实参
+{
+	int temp = 0;
+	temp = a;
+	a = b;
+	b = temp;
+}
+
+int& test05()
+{
+	int a = 10;//开辟栈区空间
+	return a;  //相当于 给a取别名
+}
+
+int main()
+{
+	int& ref = test05();
+	cout << ref << endl;
+	int a = 10;
+	showvalue(a);
+	return 0;
+}
